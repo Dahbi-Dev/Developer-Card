@@ -9,7 +9,7 @@ function App(props) {
     <div className="card">
 
       <Avatar image='avatar/me1.jpg' name="HOUSSAM DAHBI" />
-      
+
       <div className="data">
         <Intro
           name="HOUSSAM DAHBI"
@@ -24,7 +24,7 @@ function App(props) {
 }
 function Skills(props){
   return(
-    <div className="skill" style={{backgroundColor : `${props.color}`}}>
+    <div className="skill" style={{backgroundColor : props.color}}>
       <span >{props.skills}</span>
       <span>{props.emoji}</span>
     </div>
