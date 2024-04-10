@@ -4,7 +4,66 @@ import './index.css';
 
 
 
-function App(props) {
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA"
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D"
+  },
+  {
+    skill: "Web Design",
+    level: "advanced",
+    color: "#C3DCAF"
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33"
+  },
+  {
+    skill: "React",
+    level: "advanced",
+    color: "#60DAFB"
+  },
+  {
+    skill: "Svelte",
+    level: "beginner",
+    color: "#FF3B00"
+  }
+];
+
+
+
+
+function SkillList() {
+
+  return (
+    <div className='skill-list'>
+      {skills.map((skill) =>
+        <Skills skills={skill.skill}  color={skill.color} level={skill.level}   /> )}
+
+    </div>
+  )
+}
+
+function Skills({ skills, color, level }) {
+  return (
+    <div className="skill" style={{ backgroundColor: color}}  >
+      <span>{skills}</span>
+      <span>{level === "beginner" && '👶'}</span>
+      <span>{level === "intermediate" && '👍'}</span>
+      <span>{level === "advanced" && '💪'}</span>
+    </div>
+  )
+}
+
+
+function App({key}) {
   return (
     <div className="card">
 
@@ -13,54 +72,33 @@ function App(props) {
       <div className="data">
         <Intro
           name="HOUSSAM DAHBI"
-          description="Junior web developer experienced in front-end development (HTML, CSS, JavaScript) and back-end development (PHP, Laravel). Skilled in MERN stack ." 
-          />
+          description="Junior web developer experienced in front-end development (HTML, CSS, JavaScript) and back-end development (PHP, Laravel). Skilled in MERN stack ."
+        />
 
-        <SkillList />
+        <SkillList  />
 
       </div>
     </div>
   )
 }
-function Skills(props){
-  return(
-    <div className="skill" style={{backgroundColor : props.color}}>
-      <span >{props.skills}</span>
-      <span>{props.emoji}</span>
+function Intro({name, description}) {
+  return (
+    <div>
+      <h1>{name}</h1>
+      <p>{description}</p>
     </div>
   )
 }
 
 
-function SkillList(props) {
+function Avatar({name, image}) {
   return (
-    <div className='skill-list'>
-      <Skills skills="React" emoji="💪" color="blue" />
-      <Skills skills="HTML+CSS" emoji="💪" color="orange" />
-      <Skills skills="JavaScript" emoji="💪" color="yellow" />
-      <Skills skills="Laravel" emoji="👶" color="orangered" />
-      
+    <div>
+      <img src={image} alt={name} className='avatar' />
     </div>
   )
 }
 
-
-function Avatar(props) {
-  return (
-    <div>
-      <img src={props.image} alt={props.name} className='avatar' />
-    </div>    
-  )
-}  
-
-function Intro(props) {
-  return (
-    <div>
-      <h1>{props.name}</h1>
-      <p>{props.description}</p>
-    </div>    
-  )
-}  
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
