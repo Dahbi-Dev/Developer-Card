@@ -31,7 +31,7 @@ const skills = [
     color: "#60DAFB"
   },
   {
-    skill: "Svelte",
+    skill: "Laravel",
     level: "beginner",
     color: "#FF3B00"
   }
